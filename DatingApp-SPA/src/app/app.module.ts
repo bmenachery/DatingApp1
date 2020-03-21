@@ -21,6 +21,8 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { MemberDetailResolver } from './_resolver/member-detail.resolver';
 import { MemberListResolver } from './_resolver/member-list.resolver';
+import { ListsResolver } from './_resolver/lists.resolver';
+import { MessagesResolver } from './_resolver/messages.resolver';
 import { UserService } from './_services/user.service';
 import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
@@ -32,6 +34,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolver/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { FileUploadModule } from 'ng2-file-upload';
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -88,9 +91,11 @@ export class CustomHammerConfig extends HammerGestureConfig {
     AuthGuard,
     PreventUnsavedChanges,
     UserService,
+    ListsResolver,
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
+    MessagesResolver,
     { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
   ],
   bootstrap: [AppComponent]
